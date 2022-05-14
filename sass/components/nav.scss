@@ -1,0 +1,190 @@
+.nav {
+  display: flex;
+
+  &__logo {
+    font-size: 2.4rem;
+    color: $color-black;
+    margin-right: 3rem;
+  }
+
+  &__list {
+    @include ul-none;
+    display: flex;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover a {
+      font-weight: 700;
+    }
+    button {
+      height: 100%;
+    }
+  }
+  &__item + &__item {
+    margin-left: 1.5rem;
+  }
+  &__close {
+    display: none;
+  }
+  &__open {
+    display: none;
+  }
+  &__content {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+  @include respond(phone) {
+    &__content {
+      display: none;
+      padding: 0 2em;
+      padding-top: 4em;
+      justify-content: space-between;
+      flex: 1;
+      position: fixed;
+      z-index: 2;
+      right: 0;
+      height: 100vh;
+      width: 65vw;
+      flex-direction: column;
+      justify-content: unset;
+      background-color: $color-white;
+
+      & > ul {
+        width: 100%;
+        display: grid;
+        gap: 1.2rem;
+        &:first-of-type {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    &__item + &__item {
+      margin-left: 0;
+    }
+    &__close {
+      display: none;
+    }
+    a,
+    button {
+      font-size: 2rem;
+    }
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.dropdown {
+  @include ul-none;
+  background-color: $color-white;
+  display: none;
+  padding: 1em;
+  position: absolute;
+  top: 100%;
+  transform-origin: left;
+
+  border-radius: 0.8em;
+  li:hover {
+    @include hover-bold;
+  }
+  li.icon {
+    display: flex;
+    &::before {
+      margin-right: 1rem;
+    }
+  }
+  li.todo::before {
+    content: url("../images/icon-todo.svg");
+  }
+  li.calender::before {
+    content: url("../images/icon-calendar.svg");
+  }
+  li.reminders::before {
+    content: url("../images/icon-reminders.svg");
+  }
+  li.planning::before {
+    content: url("../images/icon-planning.svg");
+  }
+  @include box-shadow;
+}
+.dropdown__container {
+  position: relative;
+  &::after {
+    transition: transform 0.3s ease-in;
+    content: url("../images/icon-arrow-down.svg");
+    margin-left: 1rem;
+  }
+  @include respond(not-phone) {
+    &:hover::after {
+      transform: rotate(-180deg);
+    }
+  }
+}
+@include respond(not-phone) {
+  .dropdown__container:hover .dropdown,
+  .dropdown:hover,
+  .dropdown__container:focus .dropdown .dropdown__container:focus-within .dropdown {
+    display: block;
+  }
+}
+
+@include respond(md-device) {
+  .nav {
+    &__item,
+    button {
+      font-size: 1.5rem;
+    }
+  }
+}
+@include respond(phone) {
+  .dropdown__container.active {
+    flex-wrap: wrap;
+    & .dropdown {
+      display: block;
+      order: 1;
+      position: unset;
+      box-shadow: none;
+      width: 100%;
+      padding-left: 1.3em;
+      font-size: 2rem;
+    }
+
+    &::after {
+      transform: rotate(-180deg);
+    }
+  }
+  .nav {
+    padding-left: 1em;
+    &__content &__close {
+      display: flex;
+      align-items: center;
+      width: 2.6rem;
+      height: 2.6rem;
+      position: fixed;
+      right: 1em;
+      top: 1em;
+
+      img {
+        width: inherit;
+        height: inherit;
+      }
+    }
+    & &__open {
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      img {
+        width: 26px;
+        height: 26px;
+      }
+    }
+    &__logo {
+      font-size: 4rem;
+    }
+  }
+}

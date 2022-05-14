@@ -1,0 +1,46 @@
+.about-us {
+  padding-top: 3em;
+  display: grid;
+  @media (max-width: 800px) {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  .grid__item:first-of-type {
+    align-self: center;
+    height: fit-content;
+    @media (max-width: 800px) {
+      padding: 1em 0;
+      order: 2;
+    }
+  }
+  .title {
+    font-size: 7.9rem;
+    line-height: 0.9;
+    color: $color-black;
+    margin-bottom: 4rem;
+  }
+  .hero-img img {
+    height: 100%;
+  }
+  .hero-paragraph {
+    max-width: 81%;
+  }
+}
+
+@include respond(phone) {
+  .about-us {
+    text-align: center;
+    .grid__item:first-of-type {
+      padding: 0 1em;
+    }
+    .title {
+      font-size: 5rem;
+      line-height: 1;
+      margin-bottom: 1.2rem;
+      margin-top: 2.2rem;
+    }
+    .hero-paragraph {
+      max-width: unset;
+    }
+  }
+}

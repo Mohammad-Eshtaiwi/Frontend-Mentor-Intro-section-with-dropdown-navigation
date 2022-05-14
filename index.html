@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+</head>
+
+<body>
+  <div class="modal_back"></div>
+  <header>
+    <nav class="nav">
+      <h1 class="nav__logo">snap</h1>
+      <div class="nav__content">
+        <ul class="nav__list">
+          <li class="nav__item dropdown__container"><a>Features</a>
+            <ul class="dropdown">
+              <li class="icon todo">Todo List</li>
+              <li class="icon calender">Calender</li>
+              <li class="icon reminders">Remainders</li>
+              <li class="icon planning">Planing</li>
+            </ul>
+          </li>
+          <li class="nav__item dropdown__container"><a>Company</a>
+            <ul class="dropdown">
+              <li>Todo List</li>
+              <li>Calender</li>
+              <li>Remainders</li>
+            </ul>
+          </li>
+          <li class="nav__item"><a>Careers</a></li>
+          <li class="nav__item"><a>About</a></li>
+        </ul>
+        <ul class="nav__auth nav__list">
+          <li class="nav__item"><button class="hover_bold">Login</button></li>
+          <li class="nav__item"><button class="bordered hover_bold">Register</button></li>
+        </ul>
+        <button class="nav__close"><img src="./images/icon-close-menu.svg" alt="close"></button>
+      </div>
+      <button class="nav__open"><img src="./images/icon-menu.svg" alt="close"></button>
+    </nav>
+  </header>
+  <main>
+    <section class="grid container grid-of-2 grid-gap-8 about-us">
+      <div class="grid__item">
+        <h2 class="title">Make remote work</h2>
+        <p class="paragraph hero-paragraph">
+          Get your team in sync, no matter your location.
+          Streamline processes,
+          create team rituals, and watch productivity soar.
+        </p>
+        <button class="contained hover_bold grid-of-4 u-margin-bottom-medium">Learn More</button>
+        <ul class="clients grid grid-gap grid-of-4 grid-of-2-sm">
+          <li><img src="./images/client-databiz.svg" alt="databiz" /></li>
+          <li><img src="./images/client-audiophile.svg" alt="audiophile" /></li>
+          <li><img src="./images/client-meet.svg" alt="meet" /></li>
+          <li><img src="./images/client-maker.svg" alt="maker" /></li>
+        </ul>
+      </div>
+      <div class="grid__item">
+        <picture class="hero-img">
+          <source media="(max-width: 800px)" srcset="./images/image-hero-mobile.png">
+          <source media="(min-width: 801px)" srcset="./images/image-hero-desktop.png">
+          <img src="./images/image-hero-desktop.png" alt="IfItDoesntMatchAnyMedia">
+        </picture>
+      </div>
+    </section>
+
+  </main>
+  <script src="./script.js"></script>
+</body>
+
+</html>

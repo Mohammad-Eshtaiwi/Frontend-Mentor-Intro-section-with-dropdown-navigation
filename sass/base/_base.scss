@@ -1,0 +1,63 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  background-color: $color-white;
+  @include respond(not-phone) {
+    overflow: unset !important;
+  }
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: $color-grey-light;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  &.hover_bold {
+    @include hover-bold;
+  }
+  &.bordered {
+    border: 2px solid $color-grey-dark;
+    border-radius: 0.8em;
+  }
+  &.contained {
+    color: $color-white;
+    background: $color-black;
+    border-radius: 0.8em;
+    padding: 1em 1.6em;
+    font-weight: 700;
+    transition: all 0.3s ease-in;
+    border: $color-black 2px solid;
+    &:hover {
+      background-color: transparent;
+      color: $color-black;
+    }
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,62 @@
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin ul-none {
+  padding: 0;
+  list-style: none;
+}
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    //   490 px
+    @media (max-width: 30.625em) {
+      @content;
+    }
+  }
+  @if $breakpoint == not-phone {
+    @media (min-width: 30.625em) {
+      @content;
+    }
+  }
+  @if $breakpoint == md-device {
+    @media (min-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == not-md-device {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  //   900px
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  //   1200px
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  //   1800px
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+@mixin hover-bold {
+  &:hover {
+    font-weight: 700;
+  }
+}
+@mixin box-shadow {
+  box-shadow: -1px 5px 14px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 5px 14px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 5px 14px -4px rgba(0, 0, 0, 0.75);
+}
