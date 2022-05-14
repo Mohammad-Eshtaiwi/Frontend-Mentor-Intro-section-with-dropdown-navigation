@@ -322,7 +322,8 @@ body {
     width: auto; }
     @media (max-width: 490) {
       .clients img {
-        width: auto; } }
+        width: auto;
+        max-width: 100%; } }
   .clients button {
     font-size: 2rem; }
 
