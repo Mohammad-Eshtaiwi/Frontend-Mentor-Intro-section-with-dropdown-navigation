@@ -320,7 +320,7 @@ body {
     justify-content: center; }
   .clients img {
     width: auto; }
-    @media (max-width: 490) {
+    @media (max-width: 490px) {
       .clients img {
         max-width: 100%; } }
   .clients button {
